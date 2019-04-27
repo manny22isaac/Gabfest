@@ -1,8 +1,8 @@
 import praw, random
 
 
-reddit = praw.Reddit(client_id='PURLrGvGtjcgyw',
-                     client_secret='8bNRqdqumtxfTuXW-UGejQ5k8M0',
+reddit = praw.Reddit(client_id='<client_id>',
+                     client_secret='<client_secret>',
                      user_agent='Gabfest(Prototype)')
 
 print(reddit.read_only)
