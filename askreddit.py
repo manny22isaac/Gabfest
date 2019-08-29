@@ -75,7 +75,7 @@ age = input("Welcome " + name + ". Please enter your age: ")
 all_subreddits = ['AskMen','AskWomen','AskReddit','whowouldwin','explainlikeimfive']
 
 print("""Below are the subreddits you can recieve questions from.
-      You may use up to 5 subreddit\'s.
+      You may use up to 5 subreddit\'s. Once you've finished your selection, hit enter to continue the program.
       Please copy and paste the titles in the response below: """)
 
 for i in range(len(all_subreddits)):
@@ -86,16 +86,23 @@ for i in range(len(all_subreddits)):
 #or it will end the program by leaving the input blank.
 
 filters = []
-print('Enter a subreddit topics below. When finished, hit enter to continue the program.')
+print('Paste the subreddit here. To end the program leave the response empty and hit enter: ')
+reddit_titles = input()
 while True:
-    print('Paste the subreddit here. Hit enter to leave the program: ')
-    reddit_titles = input()
-    if reddit_titles == '':
-        break
-    filters = filters + [reddit_titles]
-    if len(filters) == 5:
-        print("Subreddit's have been selected.")
-        break
+  try:
+      if reddit_titles == '':
+          break    
+      if len(filters) == 5:
+          print("Subreddit's have been selected.")
+          break
+      if len(filters) == 0:
+        exit()
+        
+  except:
+    if reddit_titles not in all_subreddits:
+      print("Sorry we can't find any subreddit with that title.")
+  
+  filters = filters + [reddit_titles]
 #sends the parameters (name, age, filters) provided by the user to the Class Gabfest as a local variable
 #takes the varible person1 and send the GET requests to reddit.
 
